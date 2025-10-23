@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "./pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, Router } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -18,24 +18,7 @@ import { trpc } from "./lib/trpc";
 import { httpBatchLink } from "@trpc/client";
 import React from "react";
 
-function Router() {
-  return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/office"} component={OfficeDashboard} />
-      <Route path={"/candidate/:id"} component={CandidateDetails} />
-      <Route path={"/positions"} component={AvailablePositions} />
-      <Route path={"/apply"} component={ApplyForm} />
-      <Route path={"/track"} component={CandidatePortal} />
-      <Route path={"/verify-email-office"} component={EmailVerification} />
-      <Route path={"/verify-email-candidate"} component={EmailVerification} />
-      <Route path={"/induction"} component={InductionChecklist} />
-      <Route path={"/settings"} component={Settings} />
-      <Route path={"/404"} component={NotFound} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
+
 
 function App() {
   const [queryClient] = React.useState(() => new QueryClient());
@@ -56,7 +39,22 @@ function App() {
           <ThemeProvider>
             <TooltipProvider>
               <Toaster />
-              <Router />
+              <Router base="/viva-recruitment-site/">
+                <Switch>
+                  <Route path="/" component={Home} />
+                  <Route path="/office" component={OfficeDashboard} />
+                  <Route path="/candidate/:id" component={CandidateDetails} />
+                  <Route path="/positions" component={AvailablePositions} />
+                  <Route path="/apply" component={ApplyForm} />
+                  <Route path="/track" component={CandidatePortal} />
+                  <Route path="/verify-email-office" component={EmailVerification} />
+                  <Route path="/verify-email-candidate" component={EmailVerification} />
+                  <Route path="/induction" component={InductionChecklist} />
+                  <Route path="/settings" component={Settings} />
+                  <Route path="/404" component={NotFound} />
+                  <Route component={NotFound} />
+                </Switch>
+              </Router>
             </TooltipProvider>
           </ThemeProvider>
         </ErrorBoundary>
