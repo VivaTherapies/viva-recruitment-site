@@ -9,8 +9,8 @@
     
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "postbuild": "node ./scripts/fix-paths.js",
+    "predeploy": "npm run build"
+    
     "deploy": "gh-pages -d dist -f"
   },
   "dependencies": {
