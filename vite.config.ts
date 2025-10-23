@@ -4,16 +4,9 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: './',
   plugins: [react()],
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-      },
-    },
-  },
+
   build: {
     outDir: 'dist',
     rollupOptions: {
@@ -23,6 +16,7 @@ export default defineConfig({
         assetFileNames: 'assets/[name].[ext]',
       },
     },
+    assetsDir: 'assets',
   },
 })
 
