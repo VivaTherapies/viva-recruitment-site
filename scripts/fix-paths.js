@@ -1,19 +1,13 @@
-const replace = require("replace-in-file");
+import { readFileSync, writeFileSync } from 'fs';
 
-const options = {
-  files: "./dist/index.html",
-  from: /="\//g,
-  to: "=\"./",
-};
+const filePath = "./dist/index.html";
 
-async function fixPaths() {
-  try {
-    const results = await replace(options);
-    console.log("Replacement results:", results);
-  } catch (error) {
-    console.error("Error occurred:", error);
-  }
+try {
+  let content = readFileSync(filePath, "utf8");
+  content = content.replaceAll(/="\//g, "=\"./");
+  writeFileSync(filePath, content, "utf8");
+  console.log("Asset paths in index.html fixed successfully.");
+} catch (error) {
+  console.error("Error occurred while fixing asset paths:", error);
 }
-
-fixPaths();
 
