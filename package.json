@@ -2,7 +2,7 @@
   "name": "vivatherapies-project",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://VivaTherapies.github.io/viva-recruitment-site/",
+
   "type": "module",
   "scripts": {
     "dev": "vite",
