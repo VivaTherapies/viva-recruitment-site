@@ -39,7 +39,7 @@ function App() {
           <ThemeProvider>
             <TooltipProvider>
               <Toaster />
-              <Router base="/viva-recruitment-site/">
+              <Router>
                 <Switch>
                   <Route path="/" component={Home} />
                   <Route path="/office" component={OfficeDashboard} />
