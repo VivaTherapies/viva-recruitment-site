@@ -6,12 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    
-    "deploy": "gh-pages -d dist -f"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
