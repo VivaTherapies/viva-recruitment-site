@@ -48,7 +48,7 @@ export async function sendVerificationEmail(
 
     const response = await emailjs.send(
       ENV.VITE_EMAILJS_SERVICE_ID,
-      ENV.VITE_EMAILJS_VERIFICATION_TEMPLATE_ID,
+      "template_dc3u7sl", // Hardcoded for testing, was ENV.VITE_EMAILJS_VERIFICATION_TEMPLATE_ID
       templateParams
     );
 
